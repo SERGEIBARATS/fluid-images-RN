@@ -1,0 +1,148 @@
+{
+  "site": "http://https://www.adidas.com/",
+
+  "results": [
+    {
+      "id": 1,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724499/NikeAirMax90_hbuukf.png",
+      "title": "Men's originals",
+      "description": "Air Jordans",
+      "price": "200",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 },
+        { "size": 7 },
+        { "size": 7.5 },
+        { "size": 8 },
+        { "size": 10 }
+      ]
+    },
+    {
+      "id": 2,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724508/NikeAirJordanRedAndBlack_nqwzdb.png",
+      "title": "Men's originals",
+      "description": "Nike Air Jordan Red",
+      "price": "88",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 },
+        { "size": 7 },
+        { "size": 7.5 },
+        { "size": 8 },
+        { "size": 9.5 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 3,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724515/NikeRunningShoes_pebm1f.png",
+      "title": "Men's originals",
+      "description": "Nike Air Max 90",
+      "price": "99",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 4,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724477/ReebokPumpFury_jcbnxn.png",
+      "title": "Men's originals",
+      "description": "Nike Fly Knit Lunar",
+      "price": "99",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 5,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724481/NikeFootballCleats_yedkyt.png",
+      "title": "Men's originals",
+      "description": "Nike Football Cleats",
+      "price": "99",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 }
+      ]
+
+    },
+    {
+      "id": 6,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724487/AirJordans_klntqm.png",
+      "title": "Men's originals",
+      "description": "Nike Mid Blazer Wine",
+      "price": "100",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 },
+        { "size": 8.5 },
+        { "size": 9 },
+        { "size": 9.5 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 7,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724452/NikeFlyKnitLunar_qsmeyl.png",
+      "title": "Men's originals",
+      "description": "Nike Running Shoes",
+      "price": "500",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 7.5 },
+        { "size": 8 },
+        { "size": 8.5 },
+        { "size": 9 },
+        { "size": 9.5 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 8,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724467/NikeSneakers_avq130.png",
+      "title": "Men's originals",
+      "description": "Nike Sneakers",
+      "price": "99",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 },
+        { "size": 7 },
+        { "size": 7.5 },
+        { "size": 8 },
+        { "size": 8.5 },
+        { "size": 10 }
+      ]
+
+    },
+    {
+      "id": 9,
+      "imageSource": "https://res.cloudinary.com/dprrqy0lg/image/upload/c_scale,w_800/v1566724472/NikeMidBlazerRedWine_xbyxr0.png",
+      "title": "Men's originals",
+      "description": "Reebok Pump Fury",
+      "price": "200",
+      "availableSize": [
+        {"size": 5.5 },
+        { "size": 6 },
+        { "size": 6.5 },
+        { "size": 7 },
+        { "size": 7.5 },
+        { "size": 9.5 },
+        { "size": 10 }
+      ]
+
+    }
+  ]
+}
