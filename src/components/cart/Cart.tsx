@@ -2,18 +2,18 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constans/constans';
 import CartItem from '../common/CartItem';
+import { RootState } from '../../reducers';
 
 
 interface Shoe {
   id: number,
   imageSource: string
 }
-const Cart = ({ navigation, Cart, totalPrice }:any) => {
-  console.warn(totalPrice)
+const Cart = ({ navigation }:any) => {
+  const { CartReducer: { Cart, totalPrice }, } = useSelector((state: RootState) => state)
   const renderShoes = () => {
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -21,7 +21,6 @@ const Cart = ({ navigation, Cart, totalPrice }:any) => {
           numColumns={1}
           showsHorizontalScrollIndicator={false}
           data={Cart}
-          keyExtractor={(item: Shoe) => item.id}
           renderItem={({ item }: any) => <CartItem index={item.id} description={item.description} imageSource={item.imageSource} navigation={navigation} price={item.price} size={item.size} quantity={item.quantity} />}
         />
       </View>
@@ -95,16 +94,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-const mapStateToProps = (state: any) => {
-  const { cart: { Cart, totalPrice }, } = state;
-  return { Cart, totalPrice };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-
-  }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default Cart;

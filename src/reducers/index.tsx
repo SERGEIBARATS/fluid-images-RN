@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
-import CartReducer from './CartReducer';
-import ShopReducer from './ShopReducer';
-import FavoriteReducer from "./FavoriteReducer";
+import CartReducer, {CartReducerState} from './CartReducer';
+import ShopReducer, {ShopReducerState} from './ShopReducer';
+import FavoriteReducer, {FavoriteReducerState} from "./FavoriteReducer";
+
+export interface RootState {
+  ShopReducer: ShopReducerState
+  CartReducer: CartReducerState
+  FavoriteReducer: FavoriteReducerState
+}
 
 export default combineReducers({
-  shop: ShopReducer,
-  cart: CartReducer,
-  favorite: FavoriteReducer
+  ShopReducer: ShopReducer,
+  CartReducer: CartReducer,
+  FavoriteReducer: FavoriteReducer
 });

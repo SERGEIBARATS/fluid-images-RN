@@ -26,7 +26,7 @@ const OneItem = ({ imageSource, index, title, description, price, navigateToSele
       }
     ).start(() => setLoading(false));
   };
-  console.log(imageSource)
+
   return (
     <TouchableOpacity
       style={{ height: 230 }}

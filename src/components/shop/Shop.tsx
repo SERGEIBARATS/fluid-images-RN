@@ -3,10 +3,11 @@ import { View, StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constans/constans';
 import OneItem from '../common/OneItem';
 import { loadShopList, selectShoe } from '../../actions';
+import { RootState } from '../../reducers';
 
 
 interface Shoe {
@@ -15,18 +16,20 @@ interface Shoe {
   setArray: any
 }
 
-const Shop = ({ navigation, shop, loadShopList, selectedItem, selectShoe }:any) => {
+const Shop = ({ navigation }:any) => {
+  const dispatch = useDispatch()
   const [firstLoad, setFirstLoad] = useState(true);
-  const { id } = selectedItem;
   useEffect(() => {
     if (firstLoad) {
-      loadShopList();
+      dispatch(loadShopList());
       setFirstLoad(false);
     }
   }, []);
+  
+  const { ShopReducer: { shop } } = useSelector((state: RootState) => state)
 
   const navigateToSelected = (id: number, imageSource: string, title: string, description: string, price: number) => {
-    selectShoe(id, imageSource, title, description, price);
+    dispatch(selectShoe(id, imageSource, title, description, price));
     navigation.navigate('specificItemScreen', { id });
   };
 
@@ -37,7 +40,6 @@ const Shop = ({ navigation, shop, loadShopList, selectedItem, selectShoe }:any) 
           numColumns={3}
           showsVerticalScrollIndicator={false}
           data={shop}
-          keyExtractor={(item: Shoe) => item.id}
           renderItem={({ item }: any) => <OneItem index={item.id} imageSource={item.imageSource} navigation={navigation} title={item.title} description={item.description} price={item.price} navigateToSelected={navigateToSelected} />}
         />
       </View>
@@ -114,16 +116,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-const mapStateToProps = (state: any) => {
-  const { shop: { shop, selectedItem }, } = state;
-  return { shop, selectedItem };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-    loadShopList, selectShoe
-  }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+export default Shop;

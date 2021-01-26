@@ -2,16 +2,18 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constans/constans';
 import CartItem from '../common/CartItem';
+import { RootState } from '../../reducers';
 
 
 interface Shoe {
   id: number,
   imageSource: string
 }
-const Favorites = ({ navigation, Favorite }:any) => {
+const Favorites = ({ navigation }:any) => {
+  const { FavoriteReducer: { favorite }, } = useSelector((state: RootState) => state)
   const renderShoes = () => {
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -20,8 +22,7 @@ const Favorites = ({ navigation, Favorite }:any) => {
           }}
           numColumns={1}
           showsHorizontalScrollIndicator={false}
-          data={Favorite}
-          keyExtractor={(item: Shoe) => item.id}
+          data={favorite}
           renderItem={({ item }: any) => <CartItem index={item.id} description={item.description} imageSource={item.imageSource} navigation={navigation} price={item.price} size={item.size} quantity={item.quantity} />}
         />
       </View>
@@ -87,16 +88,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-const mapStateToProps = (state: any) => {
-  const { favorite: { Favorite }, } = state;
-  return { Favorite };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-
-  }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+export default Favorites;

@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MaterialAntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialEntypo from 'react-native-vector-icons/Entypo';
-import { bindActionCreators } from 'redux';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { QUANTITY, SIZE_SHOE, SCREEN_WIDTH } from '../../../../constans/constans';
 import SizeListHorizontal from './SizeListHorizontal';
 import QuantityListHorizontal from './QuantityListHorizontal';
 import { addItemToCart, addTotalPrice } from '../../../../actions';
 import { addItemToFavorite, deleteItemToFavorite } from '../../../../actions/favoritesActions';
-
+import { RootState } from '../../../../reducers';
 
 interface InterfaceSize {
     size: string,
@@ -18,12 +17,17 @@ interface InterfaceSize {
 interface InterfaceQuantity {
     quantityNum: string
 }
-const ActionSpecific = ({ selectedItem, favorite, addItemToCart, addTotalPrice, addItemToFavorite, deleteItemToFavorite }: any) => {
+const ActionSpecific = () => {
+  const dispatch = useDispatch()
   const [sizeSelected, setSizeSelected] = useState('-1');
   const [quantitySelected, setQuantitySelected] = useState('-1');
   const [sizeOfSelected, setOfSizeSelected] = useState('-1');
   const [quantityOfSelected, setQuantityOfSelected] = useState('1');
   const [isFavorite, setIsFavorite] = useState(false);
+  
+  const { ShopReducer: { selectedItem }, FavoriteReducer: { favorite } } = useSelector((state: RootState) => state)
+  console.tron.log('111')
+  console.tron.log(selectedItem, 'selectedItem')
   const { price, description, imageSource } = selectedItem;
 
 
@@ -74,16 +78,15 @@ const ActionSpecific = ({ selectedItem, favorite, addItemToCart, addTotalPrice, 
   };
 
   const addToCart = () => {
-    addItemToCart(sizeOfSelected, price, quantityOfSelected, imageSource, description);
+    dispatch(addItemToCart(sizeOfSelected, price, quantityOfSelected, imageSource, description));
     const priceForSelected = Number(price) * Number(quantityOfSelected);
-console.log('priceForSelected',priceForSelected)
-    addTotalPrice(priceForSelected);
+    dispatch(addTotalPrice(priceForSelected));
   };
 
   const clickedFavorite = () => {
     console.warn(clickedFavorite)
-    if (!isFavorite) addItemToFavorite(sizeOfSelected, price, quantityOfSelected, imageSource, description);
-    else deleteItemToFavorite(favorite, );
+    if (!isFavorite) dispatch(addItemToFavorite(sizeOfSelected, price, quantityOfSelected, imageSource, description));
+    else dispatch(deleteItemToFavorite(favorite, 0));
     setIsFavorite(!isFavorite);
   };
 
@@ -209,10 +212,6 @@ const mapStateToProps = (state: any) => {
   return { selectedItem, favorite };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-    addItemToCart, addTotalPrice, addItemToFavorite, deleteItemToFavorite
-  }, dispatch);
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActionSpecific);
+
+export default ActionSpecific;

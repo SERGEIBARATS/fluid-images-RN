@@ -1,4 +1,10 @@
+import { DefaultRootState } from 'react-redux';
 import { ADD_ITEM_TO_BAG, ADD_TOTAL_PRICE } from '../actions/actionTypes';
+
+export interface CartReducerState extends DefaultRootState {
+  Cart: []
+  totalPrice: number
+}
 
 const INITIAL_STATE = {
   Cart: [],

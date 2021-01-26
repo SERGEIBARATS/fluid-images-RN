@@ -4,10 +4,12 @@ import MaterialIonicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Transition } from 'react-navigation-fluid-transitions';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../../constans/constans';
+import { RootState } from '../../../../reducers';
 
-const PictureSpecificItem = ({ navigation, selectedItem }: any) => {
+const PictureSpecificItem = ({ navigation }: any) => {
+  const { ShopReducer: { selectedItem }, } = useSelector((state: RootState) => state)
   const { imageSource, id } = selectedItem;
   const goBack = () => {
     navigation.goBack();
@@ -90,14 +92,4 @@ const styles = StyleSheet.create({
 
 });
 
-const mapStateToProps = (state: any) => {
-  const { shop: { selectedItem }, } = state;
-  return { selectedItem };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-  }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PictureSpecificItem);
+export default PictureSpecificItem;

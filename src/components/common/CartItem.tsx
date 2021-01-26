@@ -10,6 +10,8 @@ interface itemInterace {
     description: string,
     price: string,
     mapStoreListOfShoes: any
+    size: string
+    quantity: string
 }
 const cartItem = ({ imageSource, price, size, quantity, navigation, index, description }: itemInterace) => {
   debugger;

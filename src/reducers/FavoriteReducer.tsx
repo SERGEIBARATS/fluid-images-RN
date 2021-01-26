@@ -1,16 +1,21 @@
+import { DefaultRootState } from 'react-redux';
 import { ADD_ITEM_TO_FAVORITE, DELETE_ITEM_TO_FAVORITE } from '../actions/actionTypes';
 
+export interface FavoriteReducerState extends DefaultRootState {
+  favorite: [],
+}
+
 const INITIAL_STATE = {
-  Favorite: [],
+  favorite: [],
 };
 
 export default (state = INITIAL_STATE, action: any) => {
   switch (action.type) {
     case ADD_ITEM_TO_FAVORITE: {
-      return { ...state, Favorite: [...state.Favorite, action.payload] };
+      return { ...state, favorite: [...state.favorite, action.payload] };
     }
     case DELETE_ITEM_TO_FAVORITE: {
-      return { ...state, Favorite: action.payload };
+      return { ...state, favorite: action.payload };
     }
     default:
       return state;
