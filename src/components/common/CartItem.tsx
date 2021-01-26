@@ -34,7 +34,7 @@ const cartItem = ({ imageSource, price, size, quantity, navigation, index, descr
           <Image
             style={styles.image}
             source={{ uri: imageSource, cache: 'force-cache' }}
-
+            resizeMode="contain"
             onLoadEnd={() => {
               fadeOutAction();
             }}

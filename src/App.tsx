@@ -6,7 +6,7 @@ import MainRoot from './Router';
 
 const store = storeFactory();
 
-
+console.disableYellowBox = true;
 const App = () => {
   return (
     <SafeAreaView style={styles.body}>

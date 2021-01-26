@@ -26,6 +26,7 @@ const OneItem = ({ imageSource, index, title, description, price, navigateToSele
       }
     ).start(() => setLoading(false));
   };
+  console.log(imageSource)
   return (
     <TouchableOpacity
       style={{ height: 230 }}
@@ -38,7 +39,7 @@ const OneItem = ({ imageSource, index, title, description, price, navigateToSele
             <Image
               style={styles.image}
               source={{ uri: imageSource, cache: 'force-cache' }}
-
+              resizeMode="contain"
               onLoadEnd={() => {
                 fadeOutAction();
               }}
@@ -100,8 +101,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    height: 100,
-    width: 100,
+    height: 90,
+    width: 90,
   },
   genderText: {
     color: 'gray',

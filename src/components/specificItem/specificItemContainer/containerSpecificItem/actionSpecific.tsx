@@ -22,7 +22,7 @@ const ActionSpecific = ({ selectedItem, favorite, addItemToCart, addTotalPrice, 
   const [sizeSelected, setSizeSelected] = useState('-1');
   const [quantitySelected, setQuantitySelected] = useState('-1');
   const [sizeOfSelected, setOfSizeSelected] = useState('-1');
-  const [quantityOfSelected, setQuantityOfSelected] = useState('-1');
+  const [quantityOfSelected, setQuantityOfSelected] = useState('1');
   const [isFavorite, setIsFavorite] = useState(false);
   const { price, description, imageSource } = selectedItem;
 
@@ -76,11 +76,12 @@ const ActionSpecific = ({ selectedItem, favorite, addItemToCart, addTotalPrice, 
   const addToCart = () => {
     addItemToCart(sizeOfSelected, price, quantityOfSelected, imageSource, description);
     const priceForSelected = Number(price) * Number(quantityOfSelected);
-
+console.log('priceForSelected',priceForSelected)
     addTotalPrice(priceForSelected);
   };
 
   const clickedFavorite = () => {
+    console.warn(clickedFavorite)
     if (!isFavorite) addItemToFavorite(sizeOfSelected, price, quantityOfSelected, imageSource, description);
     else deleteItemToFavorite(favorite, );
     setIsFavorite(!isFavorite);
@@ -180,7 +181,6 @@ const styles = StyleSheet.create({
   },
   borderContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingTop: 15,
@@ -189,12 +189,11 @@ const styles = StyleSheet.create({
   },
   buttonAddContainer: {
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: (SCREEN_WIDTH / 6) * 2,
     height: 40,
     backgroundColor: 'rgb(226,84,87)',
     textAlign: 'center',
-    justifyContent: 'center',
     borderRadius: 20
   },
   buttonAdd: {

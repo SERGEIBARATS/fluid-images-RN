@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constans/constans';
@@ -35,7 +35,7 @@ const Favorites = ({ navigation, Favorite }:any) => {
           <Text style={styles.textAdidas}>adidas</Text>
         </View>
         <TouchableOpacity style={{}}>
-          <Ionicons name="ios-search" size={25} color="black" />
+          <AntDesign name="search1" size={20} color="rgb(226,84,87)" />
         </TouchableOpacity>
       </View>
       <View

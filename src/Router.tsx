@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialFeather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialAntDesign from 'react-native-vector-icons/AntDesign';
 import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { FluidNavigator } from 'react-navigation-fluid-transitions';
@@ -29,7 +30,7 @@ const MainRoot = createBottomTabNavigator({
     screen: LoginPage,
     navigationOptions: {
       title: 'Home',
-      tabBarIcon: ({ focused }: any) => <MaterialCommunityIcons name="home" size={23} color={focused ? 'rgb(226,84,87)' : 'black'} />
+      tabBarIcon: ({ focused }: any) => <AntDesign name="home" size={23} color={focused ? 'rgb(226,84,87)' : 'black'} />
     },
   },
   Favorites: {
@@ -43,21 +44,21 @@ const MainRoot = createBottomTabNavigator({
     screen: FluidNavig,
     navigationOptions: {
       title: 'Shop',
-      tabBarIcon: ({ focused }: any) => <MaterialCommunityIcons name="shopping" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
+      tabBarIcon: ({ focused }: any) => <AntDesign name="shoppingcart" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
     },
   },
   Cart: {
     screen: Bag,
     navigationOptions: {
-      title: 'Cart',
-      tabBarIcon: ({ focused }: any) => <MaterialFeather name="shopping-cart" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
+      title: 'wallet',
+      tabBarIcon: ({ focused }: any) => <AntDesign name="wallet" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
     },
   },
   Account: {
     screen: Bag,
     navigationOptions: {
       title: 'Account',
-      tabBarIcon: ({ focused }: any) => <MaterialCommunityIcons name="account-circle" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
+      tabBarIcon: ({ focused }: any) => <AntDesign name="user" size={20} color={focused ? 'rgb(226,84,87)' : 'black'} />
     },
   },
 },

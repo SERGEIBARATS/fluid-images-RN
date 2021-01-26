@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../constans/constans';
@@ -53,7 +54,7 @@ const Shop = ({ navigation, shop, loadShopList, selectedItem, selectShoe }:any) 
           <Text style={styles.textAdidas}>adidas</Text>
         </View>
         <TouchableOpacity>
-          <Ionicons name="ios-search" size={25} color="black" />
+          <AntDesign name="search1" size={25} color="black" />
         </TouchableOpacity>
       </View>
       <View

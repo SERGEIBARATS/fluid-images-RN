@@ -24,6 +24,7 @@ const OneCircleItem = ({ index, imageSource }: OneShowCircle) => {
           onLoadEnd={() => {
             fadeOutAction();
           }}
+          resizeMode="contain"
           style={styles.image}
           source={{ uri: imageSource, cache: 'force-cache' }}
         />

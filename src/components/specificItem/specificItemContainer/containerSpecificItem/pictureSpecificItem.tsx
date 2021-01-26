@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import MaterialIonicons from 'react-native-vector-icons/Ionicons';
-import MaterialFeather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Transition } from 'react-navigation-fluid-transitions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ const PictureSpecificItem = ({ navigation, selectedItem }: any) => {
           <Text style={styles.textAdidas}>adidas</Text>
         </View>
         <TouchableOpacity>
-          <MaterialFeather name="shopping-cart" size={20} color="white" />
+          <AntDesign name="shoppingcart" size={20} color="white" />
         </TouchableOpacity>
       </View>
       <View style={styles.imageContainer}>
@@ -33,6 +33,7 @@ const PictureSpecificItem = ({ navigation, selectedItem }: any) => {
           <Image
             style={styles.image}
             source={{ uri: imageSource, cache: 'force-cache' }}
+            resizeMode="contain"
           />
         </Transition>
       </View>

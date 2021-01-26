@@ -29,11 +29,11 @@ const LoginPage = () => {
         </View>
         <View>
           <Text style={styles.secondText}>
-אימות סיסמא, הקלד/י סיסמא שוב
+            login
           </Text>
         </View>
         <View>
-          <Text style={styles.thirdText}>הסיסמא תשמש כאמצעי אבטחה וזיהוי לפני פעולות</Text>
+          <Text style={styles.thirdText}>password</Text>
         </View>
       </View>
       <View style={styles.passwordField}>
