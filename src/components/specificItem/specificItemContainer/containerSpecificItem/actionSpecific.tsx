@@ -26,8 +26,6 @@ const ActionSpecific = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   
   const { ShopReducer: { selectedItem }, FavoriteReducer: { favorite } } = useSelector((state: RootState) => state)
-  console.tron.log('111')
-  console.tron.log(selectedItem, 'selectedItem')
   const { price, description, imageSource } = selectedItem;
 
 
@@ -84,7 +82,6 @@ const ActionSpecific = () => {
   };
 
   const clickedFavorite = () => {
-    console.warn(clickedFavorite)
     if (!isFavorite) dispatch(addItemToFavorite(sizeOfSelected, price, quantityOfSelected, imageSource, description));
     else dispatch(deleteItemToFavorite(favorite, 0));
     setIsFavorite(!isFavorite);

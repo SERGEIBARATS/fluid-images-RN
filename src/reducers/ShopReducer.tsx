@@ -3,7 +3,7 @@ import { LOAD_SHOP, SELECTED_ITEM } from '../actions/actionTypes';
 
 export interface ShopReducerState extends DefaultRootState {
   shop: [],
-  selectedItem: { imageSource: string, id: string }
+  selectedItem: any
 }
 
 const INITIAL_STATE = {
